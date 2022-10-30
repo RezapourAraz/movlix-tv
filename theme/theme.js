@@ -9,7 +9,7 @@ export const theme = createTheme({
           scrollBehavior: "smooth",
         },
         body: {
-          backgroundColor: "#000a12",
+          backgroundColor: "#131720",
           scrollbarColor: "#6b6b6b #2b2b2b",
           "&::-webkit-scrollbar, & *::-webkit-scrollbar": {
             backgroundColor: "#212529",
@@ -42,16 +42,16 @@ export const theme = createTheme({
 
   palette: {
     common: {
-      white: "#F8F9FA",
+      white: "#e0e0e0",
     },
     primary: {
-      main: "#263238",
-      light: "#4f5b62",
+      main: "#131720",
+      light: "#151f30",
       dark: "#000a12",
     },
     secondary: {
-      main: "#ffd600",
-      light: "#ffff52",
+      main: "#2f80ed",
+      light: "#2f80ed",
       dark: "#c7a500",
     },
     success: {
