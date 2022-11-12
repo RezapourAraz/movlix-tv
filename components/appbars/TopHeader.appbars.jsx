@@ -24,6 +24,7 @@ import {
   styled,
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
+import Link from "next/link";
 
 const pages = [
   { id: 1, name: "Home", route: "/" },
@@ -86,12 +87,12 @@ function TopHeaderAppBar() {
               <List sx={{ bgcolor: "primary.main" }}>
                 {pages.map((page) => (
                   <ListItem key={page.id} disablePadding>
-                    <ListItemButton>
+                    <Link href={page.route}>
                       <ListItemText
                         primary={page.name}
                         sx={{ color: "common.white" }}
                       />
-                    </ListItemButton>
+                    </Link>
                   </ListItem>
                 ))}
               </List>
@@ -116,13 +117,20 @@ function TopHeaderAppBar() {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
-              <Button
-                key={page.name}
-                onClick={handleCloseMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                {page.name}
-              </Button>
+              <Link key={page.name} href={page.route}>
+                <Button
+                  onClick={handleCloseMenu}
+                  sx={{
+                    my: 2,
+                    color: "white",
+                    display: "block",
+                    fontSize: 14,
+                    mx: 1,
+                  }}
+                >
+                  {page.name}
+                </Button>
+              </Link>
             ))}
           </Box>
           <Box sx={{ flexGrow: 0 }}>
