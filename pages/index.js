@@ -4,6 +4,7 @@ import TopSwiper from "../components/swipers/Top.swipers";
 import { SwiperSlide } from "swiper/react";
 import FilterAppBars from "../components/appbars/Filter.appbars";
 import MainSection from "../components/sections/Main.sections";
+import SubscriptionSection from "../components/sections/Subscriptions.sections";
 
 const swiper = [
   "https://tvseriesfinale.com/wp-content/uploads/2022/08/houseofthedragon02-590x259.jpg",
@@ -21,6 +22,7 @@ export default function Home() {
       </TopSwiper>
       <FilterAppBars />
       <MainSection />
+      <SubscriptionSection />
     </Layout>
   );
 }

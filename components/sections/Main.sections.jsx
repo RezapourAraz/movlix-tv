@@ -27,7 +27,7 @@ const MainSection = () => {
         display="flex"
         justifyContent="space-between"
         alignItems="center"
-        sx={{}}
+        my={4}
       >
         <Typography
           variant="subTitle1"
