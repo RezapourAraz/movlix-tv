@@ -6,7 +6,7 @@ const Layout = ({ children }) => {
   return (
     <Box>
       <TopHeaderAppBar />
-      <Container maxWidth="xl">{children}</Container>
+      {children}
     </Box>
   );
 };
