@@ -9,13 +9,13 @@ const MainSection = () => {
   return (
     <Container>
       <Grid container gap={0.5} my={1}>
-        <Grid item md={3.97} display="flex" justifyContent="center">
+        <Grid item md={3.97} xs={12} sm={5.9} display="flex" justifyContent="center">
           <MovieCards />
         </Grid>
-        <Grid item md={3.97} display="flex" justifyContent="center">
+        <Grid item md={3.97} xs={12} sm={5.9} display="flex" justifyContent="center">
           <MovieCards />
         </Grid>
-        <Grid item md={3.97} display="flex" justifyContent="center">
+        <Grid item md={3.97} xs={12} sm={5.9} display="flex" justifyContent="center">
           <MovieCards />
         </Grid>
       </Grid>

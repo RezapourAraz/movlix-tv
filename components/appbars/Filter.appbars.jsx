@@ -32,12 +32,11 @@ const FilterAppBars = () => {
     <Container>
       <Box
         width="100%"
-        height={80}
         my={3}
         bgcolor="primary.light"
         borderRadius={4}
         p={2}
-        display="flex"
+        display={{ xs: "block", sm: "flex", md: "flex" }}
         alignItems="center"
         justifyContent="space-between"
       >

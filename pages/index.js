@@ -5,10 +5,15 @@ import { SwiperSlide } from "swiper/react";
 import FilterAppBars from "../components/appbars/Filter.appbars";
 import MainSection from "../components/sections/Main.sections";
 import SubscriptionSection from "../components/sections/Subscriptions.sections";
-import MainFooter from "../components/footer/MainFooter";
+import { Box } from "@mui/material";
 
 const swiper = [
-  "https://tvseriesfinale.com/wp-content/uploads/2022/08/houseofthedragon02-590x259.jpg",
+  "http://flixtv.volkovdesign.com/main/img/home/1.jpg",
+  "http://flixtv.volkovdesign.com/main/img/home/2.jpg",
+  "http://flixtv.volkovdesign.com/main/img/home/3.jpg",
+  "http://flixtv.volkovdesign.com/main/img/home/4.jpg",
+  "http://flixtv.volkovdesign.com/main/img/home/5.jpg",
+  "http://flixtv.volkovdesign.com/main/img/home/6.jpg",
 ];
 
 export default function Home() {
@@ -17,14 +22,21 @@ export default function Home() {
       <TopSwiper>
         {swiper.map((item) => (
           <SwiperSlide>
-            <img width="100%" height="450px" src={item} alt="" />
+            <Box borderRadius={2} overflow="hidden">
+              <img
+                loading="lazy"
+                width="100%"
+                height="100%"
+                src={item}
+                alt=""
+              />
+            </Box>
           </SwiperSlide>
         ))}
       </TopSwiper>
       <FilterAppBars />
       <MainSection />
       <SubscriptionSection />
-      <MainFooter />
     </Layout>
   );
 }

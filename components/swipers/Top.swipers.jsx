@@ -1,31 +1,47 @@
 import React from "react";
+// Mui
+import { Box } from "@mui/material";
 // Import Swiper React components
 import { Swiper } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
-import "swiper/css/pagination";
 
 // import required modules
-import { Pagination } from "swiper";
-import { Box } from "@mui/material";
+import { Autoplay } from "swiper";
 
 const TopSwiper = ({ children }) => {
   return (
-    <Box
-      height="65vh"
-      width="100%"
-      bgcolor="primary.light"
-      overflow="hidden"
-      borderRadius={4}
-      my={2}
-    >
+    <Box my={4}>
       <Swiper
-        direction={"vertical"}
+        slidesPerView={1}
+        spaceBetween={10}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
         pagination={{
           clickable: true,
         }}
-        modules={[Pagination]}
+        breakpoints={{
+          "@0.00": {
+            slidesPerView: 1,
+            spaceBetween: 10,
+          },
+          "@0.75": {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          "@1.00": {
+            slidesPerView: 3,
+            spaceBetween: 40,
+          },
+          "@1.50": {
+            slidesPerView: 4,
+            spaceBetween: 50,
+          },
+        }}
+        modules={[Autoplay]}
         className="mySwiper"
       >
         {children}
