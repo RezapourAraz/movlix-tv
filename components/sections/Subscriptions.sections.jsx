@@ -30,7 +30,6 @@ const SubscriptionSection = () => {
               spaceBetween: 50,
             },
           }}
-          modules={[navigation]}
         >
           <SwiperSlide>
             <MovieImageCard />
