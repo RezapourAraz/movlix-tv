@@ -25,6 +25,7 @@ import {
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import Link from "next/link";
+import LoginIcon from "@mui/icons-material/Login";
 
 const pages = [
   { id: 1, name: "Home", route: "/" },
@@ -36,6 +37,7 @@ const settings = ["Profile", "Account", "Dashboard", "Logout"];
 function TopHeaderAppBar() {
   // * states for menus
   const [open, setOpen] = useState(false);
+  const [user, setUser] = useState(null);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
 
   // * handlers for user menu open and close
@@ -54,8 +56,8 @@ function TopHeaderAppBar() {
   };
 
   return (
-    <AppBar position="static">
-      <Container >
+    <AppBar position="sticky" top={0} p={4}>
+      <Container>
         <Toolbar disableGutters>
           <Typography
             variant="h6"
@@ -72,7 +74,7 @@ function TopHeaderAppBar() {
           >
             MOVLIX
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" }}}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -115,7 +117,7 @@ function TopHeaderAppBar() {
           >
             MOVLIX
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" }, mx: 1 }}>
             {pages.map((page) => (
               <Link key={page.name} href={page.route}>
                 <Button
@@ -124,7 +126,7 @@ function TopHeaderAppBar() {
                     my: 2,
                     color: "white",
                     display: "block",
-                    fontSize: 14,
+                    fontSize: 13,
                     mx: 1,
                   }}
                 >
@@ -134,11 +136,33 @@ function TopHeaderAppBar() {
             ))}
           </Box>
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
+            {user ? (
+              <Tooltip title="Open settings">
+                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                  <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                </IconButton>
+              </Tooltip>
+            ) : (
+              <Box
+                display="flex"
+                alignItems="center"
+                sx={{
+                  cursor: "pointer",
+                  "&:hover": {
+                    color: "secondary.main",
+                    transition: "all 0.3s linear",
+                  },
+                }}
+              >
+                <Typography variant="h5" fontWeight="bold" fontSize={17}>
+                  Sign in
+                </Typography>
+                <LoginIcon
+                  sx={{ fontSize: 28, mx: 1, color: "secondary.main" }}
+                />
+              </Box>
+            )}
+
             <Menu
               sx={{ mt: "45px" }}
               id="menu-appbar"

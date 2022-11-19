@@ -12,12 +12,12 @@ import { Autoplay } from "swiper";
 
 const TopSwiper = ({ children }) => {
   return (
-    <Box my={4}>
+    <Box my={4} mx={2}>
       <Swiper
         slidesPerView={1}
         spaceBetween={10}
         autoplay={{
-          delay: 2500,
+          delay: 4000,
           disableOnInteraction: false,
         }}
         pagination={{

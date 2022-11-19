@@ -1,40 +1,42 @@
-// * Components
+// Mui
+import { Box, Typography } from "@mui/material";
+// Swiper
+import { SwiperSlide } from "swiper/react";
+// Components
 import Layout from "../components/layout/Layout";
 import TopSwiper from "../components/swipers/Top.swipers";
-import { SwiperSlide } from "swiper/react";
 import FilterAppBars from "../components/appbars/Filter.appbars";
 import MainSection from "../components/sections/Main.sections";
 import SubscriptionSection from "../components/sections/Subscriptions.sections";
-import { Box } from "@mui/material";
-
+import TvOriginalsSection from "../components/sections/TvOriginals.section";
+// get file path
 import fs from "fs/promises";
 import path from "path";
-import TvOriginalsSection from "../components/sections/TvOriginals.section";
-
-const swiper = [
-  "http://flixtv.volkovdesign.com/main/img/home/1.jpg",
-  "http://flixtv.volkovdesign.com/main/img/home/2.jpg",
-  "http://flixtv.volkovdesign.com/main/img/home/3.jpg",
-  "http://flixtv.volkovdesign.com/main/img/home/4.jpg",
-  "http://flixtv.volkovdesign.com/main/img/home/5.jpg",
-  "http://flixtv.volkovdesign.com/main/img/home/6.jpg",
-];
 
 export default function Home(props) {
-  const { movies, subscription, originals } = props;
+  const { banner, movies, subscription, originals } = props;
   return (
     <Layout>
       <TopSwiper>
-        {swiper.map((item) => (
+        {banner.map((item) => (
           <SwiperSlide>
-            <Box borderRadius={2} overflow="hidden">
+            <Box borderRadius={2} overflow="hidden" position="relative">
               <img
                 loading="lazy"
                 width="100%"
                 height="100%"
-                src={item}
-                alt=""
+                src={item.banner}
+                alt={item.title}
               />
+              <Box position="absolute" bottom={20} left={20}>
+                <Typography
+                  variant="subtitle1"
+                  fontSize={26}
+                  color="common.white"
+                >
+                  {item.title}
+                </Typography>
+              </Box>
             </Box>
           </SwiperSlide>
         ))}
@@ -53,8 +55,14 @@ export async function getStaticProps(context) {
   const jsonData = await fs.readFile(filePath);
   const data = JSON.parse(jsonData);
 
+  if (!data)
+    return {
+      notFound: true,
+    };
+
   return {
     props: {
+      banner: data.banner,
       movies: data.movies,
       subscription: data.subscription,
       originals: data.originals,

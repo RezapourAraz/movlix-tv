@@ -14,7 +14,7 @@
       "id": 2,
       "banner": "",
       "title": "The Dictator",
-      "description": "The story of a man who was too proud to run",
+      "description": "",
       "image": "http://flixtv.volkovdesign.com/main/img/card/2.png",
       "genre": ["Action"],
       "rating": "8.1",
@@ -66,7 +66,7 @@
       "id": 2,
       "banner": "",
       "title": "The Dictator",
-      "description": "The story of a man who was too proud to run",
+      "description": "",
       "image": "http://flixtv.volkovdesign.com/main/img/card/2.png",
       "genre": ["Action"],
       "rating": "8.1",
@@ -151,6 +151,88 @@
       "length": "4:58",
       "description": "",
       "genre": "Action"
+    }
+  ],
+  "banner": [
+    {
+      "id": 1,
+      "banner": "http://flixtv.volkovdesign.com/main/img/home/1.jpg",
+      "title": "Money Plane",
+      "description": "",
+      "image": "",
+      "genre": ["Action"],
+      "rating": "9.1",
+      "trailer": ""
+    },
+    {
+      "id": 2,
+      "banner": "http://flixtv.volkovdesign.com/main/img/home/2.jpg",
+      "title": "The Art of Political",
+      "description": "",
+      "image": "",
+      "genre": ["Documentary"],
+      "rating": "8.3",
+      "trailer": ""
+    },
+    {
+      "id": 3,
+      "banner": "http://flixtv.volkovdesign.com/main/img/home/3.jpg",
+      "title": "Antebellum",
+      "description": "",
+      "image": "",
+      "genre": ["Horror"],
+      "rating": "7.9",
+      "trailer": ""
+    },
+    {
+      "id": 4,
+      "banner": "http://flixtv.volkovdesign.com/main/img/home/4.jpg",
+      "title": "Kids Next Door",
+      "description": "",
+      "image": "",
+      "genre": ["Action"],
+      "rating": "8.4",
+      "trailer": ""
+    },
+    {
+      "id": 5,
+      "banner": "http://flixtv.volkovdesign.com/main/img/home/5.jpg",
+      "title": "The Empty Man",
+      "description": "",
+      "image": "",
+      "genre": ["Action"],
+      "rating": "8.4",
+      "trailer": ""
+    },
+    {
+      "id": 6,
+      "banner": "http://flixtv.volkovdesign.com/main/img/home/6.jpg",
+      "title": "Jungle land",
+      "description": "",
+      "image": "",
+      "genre": ["Action"],
+      "rating": "9.1",
+      "trailer": ""
+    },
+    {
+      "id": 7,
+      "banner": "http://flixtv.volkovdesign.com/main/img/home/7.jpg",
+      "title": "Bad Impulse",
+      "description": "",
+      "image": "",
+      "genre": ["Action"],
+      "rating": "8.8",
+      "trailer": ""
+    },
+    {
+      "id": 8,
+      "banner": "http://flixtv.volkovdesign.com/main/img/home/8.jpg",
+      "title": "Tenet",
+      "description": "",
+      "image": "",
+      "genre": ["Action"],
+      "rating": "7.6",
+      "trailer": ""
     }
   ]
 }
