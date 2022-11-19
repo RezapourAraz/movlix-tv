@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
 
-const MovieImageCard = () => {
+const MovieImageCard = ({ sub }) => {
   return (
     <Box width={160} height={260}>
       <Box height={230} borderRadius={3} overflow="hidden">
@@ -9,8 +9,8 @@ const MovieImageCard = () => {
           width="100%"
           height="100%"
           style={{ objectFit: "cover" }}
-          src="http://flixtv.volkovdesign.com/main/img/card/12.png"
-          alt=""
+          src={sub.image}
+          alt={sub.title}
         />
       </Box>
       <Box my={1} textAlign="center">
@@ -21,7 +21,7 @@ const MovieImageCard = () => {
           fontSize={18}
           mx={1.5}
         >
-          hello hwelllllllllllllliiiiiiiiiiiiii
+          {sub.title}
         </Typography>
       </Box>
     </Box>

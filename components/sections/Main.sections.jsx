@@ -5,19 +5,25 @@ import { Box, Container, Grid, Pagination, Typography } from "@mui/material";
 // Components
 import MovieCards from "../cards/Movie.cards";
 
-const MainSection = () => {
+const MainSection = ({ movies }) => {
+  console.log(movies);
   return (
     <Container>
       <Grid container gap={0.5} my={1}>
-        <Grid item md={3.97} xs={12} sm={5.9} display="flex" justifyContent="center">
-          <MovieCards />
-        </Grid>
-        <Grid item md={3.97} xs={12} sm={5.9} display="flex" justifyContent="center">
-          <MovieCards />
-        </Grid>
-        <Grid item md={3.97} xs={12} sm={5.9} display="flex" justifyContent="center">
-          <MovieCards />
-        </Grid>
+        {movies.map((movie) => (
+          <Grid
+            key={movie.id}
+            item
+            mt={1}
+            md={3.97}
+            xs={12}
+            sm={5.9}
+            display="flex"
+            justifyContent="center"
+          >
+            <MovieCards movie={movie} />
+          </Grid>
+        ))}
       </Grid>
       {/* Pagination Component */}
       <Box
@@ -35,7 +41,7 @@ const MainSection = () => {
           fontSize={15}
           fontWeight="bold"
         >
-          12 from 144
+          {movies.length} from {movies.length}
         </Typography>
         <Pagination
           count={10}

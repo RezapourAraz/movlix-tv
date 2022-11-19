@@ -7,6 +7,10 @@ import MainSection from "../components/sections/Main.sections";
 import SubscriptionSection from "../components/sections/Subscriptions.sections";
 import { Box } from "@mui/material";
 
+import fs from "fs/promises";
+import path from "path";
+import TvOriginalsSection from "../components/sections/TvOriginals.section";
+
 const swiper = [
   "http://flixtv.volkovdesign.com/main/img/home/1.jpg",
   "http://flixtv.volkovdesign.com/main/img/home/2.jpg",
@@ -16,7 +20,8 @@ const swiper = [
   "http://flixtv.volkovdesign.com/main/img/home/6.jpg",
 ];
 
-export default function Home() {
+export default function Home(props) {
+  const { movies, subscription, originals } = props;
   return (
     <Layout>
       <TopSwiper>
@@ -35,8 +40,24 @@ export default function Home() {
         ))}
       </TopSwiper>
       <FilterAppBars />
-      <MainSection />
-      <SubscriptionSection />
+      <MainSection movies={movies} />
+      <SubscriptionSection subscription={subscription} />
+      <TvOriginalsSection originals={originals} />
     </Layout>
   );
+}
+
+export async function getStaticProps(context) {
+  // import dummy data
+  const filePath = path.join(process.cwd(), "data.json");
+  const jsonData = await fs.readFile(filePath);
+  const data = JSON.parse(jsonData);
+
+  return {
+    props: {
+      movies: data.movies,
+      subscription: data.subscription,
+      originals: data.originals,
+    },
+  };
 }

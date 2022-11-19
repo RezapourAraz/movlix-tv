@@ -2,7 +2,7 @@ import React from "react";
 // Mui
 import { Box, Typography } from "@mui/material";
 
-const MovieCards = () => {
+const MovieCards = ({ movie }) => {
   return (
     <Box
       bgcolor="primary.light"
@@ -18,13 +18,14 @@ const MovieCards = () => {
             height="100%"
             width="100%"
             style={{ objectFit: "cover" }}
-            src="http://flixtv.volkovdesign.com/main/img/card/1.png"
-            alt=""
+            src={movie.image}
+            alt={movie.title}
           />
         </Box>
       </Box>
       <Box
-        p={3}
+        px={3}
+        py={2}
         width={190}
         display="flex"
         flexDirection="column"
@@ -34,6 +35,7 @@ const MovieCards = () => {
           <Typography
             variant="h5"
             color="common.white"
+            fontSize={20}
             sx={{
               transition: "0.5s linear",
               "&:hover": {
@@ -41,28 +43,24 @@ const MovieCards = () => {
               },
             }}
           >
-            Title
+            {movie.title}
           </Typography>
         </Box>
-        <Box my={1} display="flex" justifyContent="space-between">
-          <Typography variant="subTitle2" color="grey">
-            Title
-          </Typography>
-          <Typography variant="subTitle2" color="grey">
-            Title
-          </Typography>
-          <Typography variant="subTitle2" color="grey">
-            Title
-          </Typography>
+        <Box mt={1} display="flex" justifyContent="space-between">
+          {movie.genre.map((item) => (
+            <Typography variant="subTitle2" color="grey">
+              {item}
+            </Typography>
+          ))}
         </Box>
-        <Box my={1}>
+        <Box mt={1}>
           <Typography variant="subTitle2" color="grey">
             Director:
           </Typography>
         </Box>
-        <Box my={3}>
-          <Typography variant="subTitle2" color="grey">
-            Title
+        <Box my={2} height={50}>
+          <Typography variant="subTitle2" fontSize={14} color="grey">
+            {movie.description}
           </Typography>
         </Box>
       </Box>

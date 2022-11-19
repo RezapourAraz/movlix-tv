@@ -1,0 +1,156 @@
+{
+  "movies": [
+    {
+      "id": 1,
+      "banner": "",
+      "title": "The Good Lord Bird",
+      "description": "One man's struggle to take it easy",
+      "image": "http://flixtv.volkovdesign.com/main/img/card/1.png",
+      "genre": ["Action"],
+      "rating": "9.1",
+      "trailer": ""
+    },
+    {
+      "id": 2,
+      "banner": "",
+      "title": "The Dictator",
+      "description": "The story of a man who was too proud to run",
+      "image": "http://flixtv.volkovdesign.com/main/img/card/2.png",
+      "genre": ["Action"],
+      "rating": "8.1",
+      "trailer": ""
+    },
+    {
+      "id": 3,
+      "banner": "",
+      "title": "12 Years a Slave",
+      "description": "in space no one can hear you scream",
+      "image": "http://flixtv.volkovdesign.com/main/img/card/3.png",
+      "genre": ["Action"],
+      "rating": "7.9",
+      "trailer": ""
+    },
+    {
+      "id": 4,
+      "banner": "",
+      "title": "Get On Up",
+      "description": "The longer you wait, the harder it gets",
+      "image": "http://flixtv.volkovdesign.com/main/img/card/4.png",
+      "genre": ["Action"],
+      "rating": "8.8",
+      "trailer": ""
+    },
+    {
+      "id": 5,
+      "banner": "",
+      "title": "Interview With the Vampire",
+      "description": "There's more than one way to lose your life to a killer",
+      "image": "http://flixtv.volkovdesign.com/main/img/card/5.png",
+      "genre": ["Action"],
+      "rating": "7.1",
+      "trailer": ""
+    },
+    {
+      "id": 6,
+      "banner": "",
+      "title": "Pawn Sacrifice",
+      "description": "The first casualty of war is innocence",
+      "image": "http://flixtv.volkovdesign.com/main/img/card/6.png",
+      "genre": ["Action"],
+      "rating": "7.1",
+      "trailer": ""
+    }
+  ],
+  "subscription": [
+    {
+      "id": 2,
+      "banner": "",
+      "title": "The Dictator",
+      "description": "The story of a man who was too proud to run",
+      "image": "http://flixtv.volkovdesign.com/main/img/card/2.png",
+      "genre": ["Action"],
+      "rating": "8.1",
+      "trailer": ""
+    },
+    {
+      "id": 3,
+      "banner": "",
+      "title": "12 Years a Slave",
+      "description": "in space no one can hear you scream",
+      "image": "http://flixtv.volkovdesign.com/main/img/card/3.png",
+      "genre": ["Action"],
+      "rating": "7.9",
+      "trailer": ""
+    },
+    {
+      "id": 4,
+      "banner": "",
+      "title": "Get On Up",
+      "description": "The longer you wait, the harder it gets",
+      "image": "http://flixtv.volkovdesign.com/main/img/card/4.png",
+      "genre": ["Action"],
+      "rating": "8.8",
+      "trailer": ""
+    },
+    {
+      "id": 5,
+      "banner": "",
+      "title": "Interview With the Vampire",
+      "description": "There's more than one way to lose your life to a killer",
+      "image": "http://flixtv.volkovdesign.com/main/img/card/5.png",
+      "genre": ["Action"],
+      "rating": "7.1",
+      "trailer": ""
+    }
+  ],
+  "originals": [
+    {
+      "id": 1,
+      "title": "Best of 2020: Top Trending Moments",
+      "image": "http://flixtv.volkovdesign.com/main/img/interview/4.jpg",
+      "length": "4:58",
+      "description": "",
+      "genre": "Action"
+    },
+    {
+      "id": 2,
+      "title": "How Movies and TV Shaped Our Perception of HIV/AIDS",
+      "image": "http://flixtv.volkovdesign.com/main/img/interview/5.jpg",
+      "length": "3:52",
+      "description": "",
+      "genre": "Action"
+    },
+    {
+      "id": 3,
+      "title": "American Gods",
+      "image": "http://flixtv.volkovdesign.com/main/img/interview/6.jpg",
+      "length": "5:33",
+      "description": "",
+      "genre": "Action"
+    },
+    {
+      "id": 4,
+      "title": "What Was Ben Affleck Planning for His Unmade 'Batman' Film?",
+      "image": "http://flixtv.volkovdesign.com/main/img/interview/1.jpg",
+      "length": "2:41",
+      "description": "",
+      "genre": "Action"
+    },
+    {
+      "id": 5,
+      "title": "A Guide to the Work of Ryan Murphy",
+      "image": "http://flixtv.volkovdesign.com/main/img/interview/2.jpg",
+      "length": "7:19",
+      "description": "",
+      "genre": "Action"
+    },
+    {
+      "id": 6,
+      "title": "Gugu Mbatha-Raw Shares the Films That Give Her Hope",
+      "image": "http://flixtv.volkovdesign.com/main/img/interview/3.jpg",
+      "length": "4:58",
+      "description": "",
+      "genre": "Action"
+    }
+  ]
+}

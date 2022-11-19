@@ -4,7 +4,7 @@ import { Box, Container, Grid, Typography } from "@mui/material";
 import MovieImageCard from "../cards/MovieImage.cards";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-const SubscriptionSection = () => {
+const SubscriptionSection = ({ subscription }) => {
   return (
     <Container>
       <Box my={3}>
@@ -31,27 +31,11 @@ const SubscriptionSection = () => {
             },
           }}
         >
-          <SwiperSlide>
-            <MovieImageCard />
-          </SwiperSlide>
-          <SwiperSlide>
-            <MovieImageCard />
-          </SwiperSlide>
-          <SwiperSlide>
-            <MovieImageCard />
-          </SwiperSlide>
-          <SwiperSlide>
-            <MovieImageCard />
-          </SwiperSlide>
-          <SwiperSlide>
-            <MovieImageCard />
-          </SwiperSlide>
-          <SwiperSlide>
-            <MovieImageCard />
-          </SwiperSlide>
-          <SwiperSlide>
-            <MovieImageCard />
-          </SwiperSlide>
+          {subscription.map((sub) => (
+            <SwiperSlide key={sub.id}>
+              <MovieImageCard sub={sub} />
+            </SwiperSlide>
+          ))}
         </Swiper>
       </Grid>
     </Container>
