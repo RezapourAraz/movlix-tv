@@ -1,64 +1,70 @@
 {
   "movies": [
     {
-      "id": 1,
+      "id": "1",
       "banner": "",
       "title": "The Good Lord Bird",
       "description": "One man's struggle to take it easy",
       "image": "http://flixtv.volkovdesign.com/main/img/card/1.png",
       "genre": ["Action"],
       "rating": "9.1",
-      "trailer": ""
+      "trailer": "",
+      "withBanner": "http://flixtv.volkovdesign.com/main/img/details.jpg"
     },
     {
-      "id": 2,
+      "id": "2",
       "banner": "",
       "title": "The Dictator",
       "description": "",
       "image": "http://flixtv.volkovdesign.com/main/img/card/2.png",
       "genre": ["Action"],
       "rating": "8.1",
-      "trailer": ""
+      "trailer": "",
+      "withBanner": "http://flixtv.volkovdesign.com/main/img/details.jpg"
     },
     {
-      "id": 3,
+      "id": "3",
       "banner": "",
       "title": "12 Years a Slave",
       "description": "in space no one can hear you scream",
       "image": "http://flixtv.volkovdesign.com/main/img/card/3.png",
       "genre": ["Action"],
       "rating": "7.9",
-      "trailer": ""
+      "trailer": "",
+      "withBanner": "http://flixtv.volkovdesign.com/main/img/details.jpg"
     },
     {
-      "id": 4,
+      "id": "4",
       "banner": "",
       "title": "Get On Up",
       "description": "The longer you wait, the harder it gets",
       "image": "http://flixtv.volkovdesign.com/main/img/card/4.png",
       "genre": ["Action"],
       "rating": "8.8",
-      "trailer": ""
+      "trailer": "",
+      "withBanner": "http://flixtv.volkovdesign.com/main/img/details.jpg"
     },
     {
-      "id": 5,
+      "id": "5",
       "banner": "",
       "title": "Interview With the Vampire",
       "description": "There's more than one way to lose your life to a killer",
       "image": "http://flixtv.volkovdesign.com/main/img/card/5.png",
       "genre": ["Action"],
       "rating": "7.1",
-      "trailer": ""
+      "trailer": "",
+      "withBanner": "http://flixtv.volkovdesign.com/main/img/details.jpg"
     },
     {
-      "id": 6,
+      "id": "6",
       "banner": "",
       "title": "Pawn Sacrifice",
       "description": "The first casualty of war is innocence",
       "image": "http://flixtv.volkovdesign.com/main/img/card/6.png",
       "genre": ["Action"],
       "rating": "7.1",
-      "trailer": ""
+      "trailer": "",
+      "withBanner": "http://flixtv.volkovdesign.com/main/img/details.jpg"
     }
   ],
   "subscription": [
@@ -233,6 +239,55 @@
       "genre": ["Action"],
       "rating": "7.6",
       "trailer": ""
+    }
+  ],
+  "category": [
+    {
+      "id": 1,
+      "title": "Animals",
+      "image": "http://flixtv.volkovdesign.com/main/img/category/1.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Comedy",
+      "image": "http://flixtv.volkovdesign.com/main/img/category/2.jpg",
+      "count": 255
+    },
+    {
+      "id": 3,
+      "title": "Documentary",
+      "image": "http://flixtv.volkovdesign.com/main/img/category/3.jpg",
+      "count": 255
+    },
+    {
+      "id": 4,
+      "title": "History",
+      "image": "http://flixtv.volkovdesign.com/main/img/category/4.jpg",
+      "count": 255
+    },
+    {
+      "id": 5,
+      "title": "Horror",
+      "image": "http://flixtv.volkovdesign.com/main/img/category/5.jpg",
+      "count": 255
+    },
+    {
+      "id": 6,
+      "title": "Travel",
+      "image": "http://flixtv.volkovdesign.com/main/img/category/7.jpg",
+      "count": 255
+    },
+    {
+      "id": 7,
+      "title": "Western",
+      "image": "http://flixtv.volkovdesign.com/main/img/category/8.jpg",
+      "count": 255
+    },
+    {
+      "id": 8,
+      "title": "Science Fiction",
+      "image": "http://flixtv.volkovdesign.com/main/img/category/6.jpg",
+      "count": 255
     }
   ]
 }

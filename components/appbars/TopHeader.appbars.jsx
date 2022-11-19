@@ -1,18 +1,17 @@
 import React, { useState } from "react";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
-import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
-import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
+// Mui
 import {
+  AppBar,
+  Container,
+  Menu,
+  Typography,
+  IconButton,
+  Toolbar,
+  Box,
+  MenuItem,
+  Tooltip,
+  Avatar,
+  Button,
   alpha,
   Drawer,
   InputBase,
@@ -23,31 +22,38 @@ import {
   ListItemText,
   styled,
 } from "@mui/material";
+// Icons
 import SearchIcon from "@mui/icons-material/Search";
-import Link from "next/link";
 import LoginIcon from "@mui/icons-material/Login";
+import AdbIcon from "@mui/icons-material/Adb";
+import MenuIcon from "@mui/icons-material/Menu";
+// Next
+import { useRouter } from "next/router";
+import Link from "next/link";
 
 const pages = [
   { id: 1, name: "Home", route: "/" },
-  { id: 2, name: "Catalog", route: "/catalog" },
+  { id: 2, name: "Category", route: "/category" },
   { id: 3, name: "Live", route: "/live" },
 ];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function TopHeaderAppBar() {
-  // * states for menus
+  // Hooks
+  const router = useRouter();
+  // states for menus
   const [open, setOpen] = useState(false);
   const [user, setUser] = useState(null);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
 
-  // * handlers for user menu open and close
+  // handlers for user menu open and close
   const handleOpenUserMenu = () => {
     setUserMenuOpen(true);
   };
   const handleCloseUserMenu = () => {
     setUserMenuOpen(false);
   };
-  // * handlers for sidebar menu open and close
+  // handlers for sidebar menu open and close
   const handleCloseMenu = () => {
     setOpen(false);
   };
@@ -74,7 +80,7 @@ function TopHeaderAppBar() {
           >
             MOVLIX
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" }}}>
+          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -153,6 +159,7 @@ function TopHeaderAppBar() {
                     transition: "all 0.3s linear",
                   },
                 }}
+                onClick={() => router.push("signin")}
               >
                 <Typography variant="h5" fontWeight="bold" fontSize={17}>
                   Sign in
