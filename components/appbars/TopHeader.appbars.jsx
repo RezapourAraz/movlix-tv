@@ -46,10 +46,6 @@ function TopHeaderAppBar({ user }) {
   const [open, setOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
 
-  // handlers for user menu open and close
-  const handleOpenUserMenu = () => {
-    setUserMenuOpen(true);
-  };
   const handleCloseUserMenu = () => {
     setUserMenuOpen(false);
   };
@@ -159,17 +155,16 @@ function TopHeaderAppBar({ user }) {
           </Box>
           <Box sx={{ flexGrow: 0 }}>
             {user ? (
-              <Tooltip title="Open settings">
-                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                  <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-                </IconButton>
-              </Tooltip>
+              <IconButton onClick={() => router.push("/profile")} sx={{ p: 0 }}>
+                <Avatar alt={user.userName} src={user.profilePic} />
+              </IconButton>
             ) : (
               <Box
                 display="flex"
                 alignItems="center"
                 sx={{
                   cursor: "pointer",
+                  color: "common.white",
                   "&:hover": {
                     color: "secondary.main",
                     transition: "all 0.3s linear",

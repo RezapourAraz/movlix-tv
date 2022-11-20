@@ -24,7 +24,7 @@ const CatalogPage = (props) => {
 
   if (user)
     return (
-      <Layout>
+      <Layout user={user}>
         <CategorySection category={category} />
         <PopularSection data={subscription} />
         <NewestSection data={subscription} />

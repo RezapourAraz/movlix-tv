@@ -17,13 +17,13 @@ import CommentsSection from "../../components/sections/Comments.sections";
 import NotificationCard from "../../components/cards/Notification.cards";
 import AddCommentCard from "../../components/cards/AddComment.cards";
 
-const MovieDetailPage = ({ movie, mapComments }) => {
+const MovieDetailPage = ({ movie, mapComments, user }) => {
   console.log(mapComments);
 
   if (!movie) return <Layout>Loading....</Layout>;
 
   return (
-    <Layout>
+    <Layout user={user}>
       <Box position="relative">
         <Box
           height={450}
@@ -110,6 +110,7 @@ export async function getStaticProps(context) {
     props: {
       movie,
       mapComments,
+      user: data.user,
     },
   };
 }
