@@ -42,7 +42,12 @@ const DetailSection = ({ movie }) => {
               {movie.rating}
             </Typography>
             {movie.genre.map((item) => (
-              <Typography variant="subtitle1" mx={1} color="common.white">
+              <Typography
+                key={item}
+                variant="subtitle1"
+                mx={1}
+                color="common.white"
+              >
                 {item}
               </Typography>
             ))}

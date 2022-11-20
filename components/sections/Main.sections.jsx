@@ -6,7 +6,7 @@ import { Box, Container, Grid, Pagination, Typography } from "@mui/material";
 import MovieCards from "../cards/Movie.cards";
 
 const MainSection = ({ movies }) => {
-  console.log(movies);
+  
   return (
     <Container>
       <Grid container gap={0.5} my={1}>

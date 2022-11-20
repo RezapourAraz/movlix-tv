@@ -16,22 +16,19 @@ import TvOriginalsSection from "../components/sections/TvOriginals.section";
 import fs from "fs/promises";
 import path from "path";
 
-const useUser = () => ({ user: true, loading: false });
-
 export default function Home(props) {
   // Data Props
-  const { banner, movies, subscription, originals } = props;
+  const { banner, movies, subscription, originals, user } = props;
   // Hooks
-  const { user, loading } = useUser();
   const router = useRouter();
 
   useEffect(() => {
-    if (!user || loading) router.push("/signin");
-  }, [user, loading]);
+    if (!user) router.push("/signin");
+  }, [user]);
 
   if (user)
     return (
-      <Layout>
+      <Layout user={user}>
         <TopSwiper>
           {banner.map((item) => (
             <SwiperSlide>
@@ -81,6 +78,7 @@ export async function getStaticProps(context) {
       movies: data.movies,
       subscription: data.subscription,
       originals: data.originals,
+      user: data.user,
     },
   };
 }

@@ -21,6 +21,7 @@ import {
   ListItemIcon,
   ListItemText,
   styled,
+  Input,
 } from "@mui/material";
 // Icons
 import SearchIcon from "@mui/icons-material/Search";
@@ -38,12 +39,11 @@ const pages = [
 ];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
-function TopHeaderAppBar() {
+function TopHeaderAppBar({ user }) {
   // Hooks
   const router = useRouter();
   // states for menus
   const [open, setOpen] = useState(false);
-  const [user, setUser] = useState(null);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
 
   // handlers for user menu open and close
@@ -140,6 +140,22 @@ function TopHeaderAppBar() {
                 </Button>
               </Link>
             ))}
+          </Box>
+          <Box p={2} width={300} sx={{}}>
+            <Input
+              type="search"
+              mx={3}
+              fullWidth
+              placeholder="I'm looking for..."
+              sx={{
+                bgcolor: "primary.light",
+                padding: "5px 10px",
+                borderRadius: 3,
+                color: "common.white",
+                border: "none",
+                outline: "none",
+              }}
+            />
           </Box>
           <Box sx={{ flexGrow: 0 }}>
             {user ? (

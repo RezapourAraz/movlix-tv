@@ -9,7 +9,21 @@
       "genre": ["Action"],
       "rating": "9.1",
       "trailer": "",
-      "withBanner": "http://flixtv.volkovdesign.com/main/img/details.jpg"
+      "withBanner": "http://flixtv.volkovdesign.com/main/img/details.jpg",
+      "seasons": [
+        {
+          "title": "Season One",
+          "id": "11",
+          "episodes": [],
+          "image": ""
+        },
+        {
+          "title": "Season Two",
+          "id": "21",
+          "episodes": [],
+          "image": ""
+        }
+      ]
     },
     {
       "id": "2",
@@ -20,7 +34,21 @@
       "genre": ["Action"],
       "rating": "8.1",
       "trailer": "",
-      "withBanner": "http://flixtv.volkovdesign.com/main/img/details.jpg"
+      "withBanner": "http://flixtv.volkovdesign.com/main/img/details.jpg",
+      "seasons": [
+        {
+          "title": "Season One",
+          "id": "12",
+          "episodes": [],
+          "image": ""
+        },
+        {
+          "title": "Season Two",
+          "id": "22",
+          "episodes": [],
+          "image": ""
+        }
+      ]
     },
     {
       "id": "3",
@@ -31,7 +59,8 @@
       "genre": ["Action"],
       "rating": "7.9",
       "trailer": "",
-      "withBanner": "http://flixtv.volkovdesign.com/main/img/details.jpg"
+      "withBanner": "http://flixtv.volkovdesign.com/main/img/details.jpg",
+      "seasons": []
     },
     {
       "id": "4",
@@ -42,7 +71,8 @@
       "genre": ["Action"],
       "rating": "8.8",
       "trailer": "",
-      "withBanner": "http://flixtv.volkovdesign.com/main/img/details.jpg"
+      "withBanner": "http://flixtv.volkovdesign.com/main/img/details.jpg",
+      "seasons": []
     },
     {
       "id": "5",
@@ -53,7 +83,8 @@
       "genre": ["Action"],
       "rating": "7.1",
       "trailer": "",
-      "withBanner": "http://flixtv.volkovdesign.com/main/img/details.jpg"
+      "withBanner": "http://flixtv.volkovdesign.com/main/img/details.jpg",
+      "seasons": []
     },
     {
       "id": "6",
@@ -64,7 +95,8 @@
       "genre": ["Action"],
       "rating": "7.1",
       "trailer": "",
-      "withBanner": "http://flixtv.volkovdesign.com/main/img/details.jpg"
+      "withBanner": "http://flixtv.volkovdesign.com/main/img/details.jpg",
+      "seasons": []
     }
   ],
   "subscription": [
@@ -288,6 +320,99 @@
       "title": "Science Fiction",
       "image": "http://flixtv.volkovdesign.com/main/img/category/6.jpg",
       "count": 255
+    }
+  ],
+  "user": {
+    "id": "123",
+    "firstName": "Araz",
+    "lastName": "Rezapour",
+    "password": "492",
+    "userName": "ArazDev",
+    "email": "rezapouraraz@gmail.com",
+    "profilePic": "",
+    "role": "admin"
+  },
+  "comments": [
+    {
+      "id": "12",
+      "postRel": "1",
+      "content": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
+      "user": "125",
+      "date": "September 10, 2022",
+      "replay": [
+        {
+          "id": "121",
+          "commentRel": "12",
+          "content": "",
+          "user": "124",
+          "date": "September 11, 2022"
+        },
+        {
+          "id": "122",
+          "commentRel": "12",
+          "content": "",
+          "user": "125",
+          "date": "September 12, 2022"
+        }
+      ]
+    },
+    {
+      "id": "14",
+      "postRel": "1",
+      "content": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
+      "user": "124",
+      "date": "September 11, 2022",
+      "replay": [
+        {
+          "id": "141",
+          "commentRel": "14",
+          "content": "",
+          "user": "125",
+          "date": "September 12, 2022"
+        },
+        {
+          "id": "142",
+          "commentRel": "14",
+          "content": "",
+          "user": "124",
+          "date": "September 12, 2022"
+        }
+      ]
+    },
+    {
+      "id": "13",
+      "postRel": "2",
+      "content": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
+      "user": "124",
+      "date": "September 13, 2022",
+      "replay": [
+        {
+          "id": "131",
+          "commentRel": "13",
+          "content": "",
+          "user": "125"
+        }
+      ]
+    }
+  ],
+  "users": [
+    {
+      "id": "125",
+      "firstName": "Teo",
+      "lastName": "David",
+      "userName": "TeoD",
+      "email": "teodavids@gmail.com",
+      "profilePic": "",
+      "role": "user"
+    },
+    {
+      "id": "124",
+      "firstName": "Adam",
+      "lastName": "Walker",
+      "userName": "AdamW",
+      "email": "adamwalker@gmail.com",
+      "profilePic": "",
+      "role": "user"
     }
   ]
 }
