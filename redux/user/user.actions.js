@@ -3,6 +3,8 @@ import axios from "axios";
 import { userActionTypes } from "./user.type";
 // cookie
 import { setCookie } from "cookies-next";
+// toast
+import { toast } from "react-toastify";
 
 const BASE_URL = "https://movlix-server.vercel.app/";
 
@@ -23,10 +25,14 @@ export const userSignIn = (userName, password, router) => async (dispatch) => {
   await axios
     .get(`${BASE_URL}users?userName=${userName}&password=${password}`)
     .then((res) => {
-      const user = res.data.data;
+      const user = res.data;
       dispatch(userSignInActionSuccess(user));
-      setCookie("user", user);
+      setCookie("user", res.data.data);
+      toast.success(res.data.resultMessage);
       router.push("/");
     })
-    .catch((err) => dispatch(userSignInActionFailure(err.message)));
+    .catch((err) => {
+      dispatch(userSignInActionFailure(err.message));
+      toast.error(err.resultMessage);
+    });
 };

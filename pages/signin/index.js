@@ -1,17 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 // Next
 import { useRouter } from "next/router";
 // Mui
 import { Box, Button, Checkbox, Input, Typography } from "@mui/material";
-import { useSignInFormik } from "../../utils/formik";
-import { useDispatch } from "react-redux";
+import { LoadingButton } from "@mui/lab";
+// redux
+import { useDispatch, useSelector } from "react-redux";
 import { userSignIn } from "../../redux/user/user.actions";
+// cookie
+import { hasCookie } from "cookies-next";
+// toast
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+// helper
+import { useSignInFormik } from "../../utils/formik";
 
 const SignInPage = () => {
   // Hooks
   const router = useRouter();
   const dispatch = useDispatch();
-
+  const { isLoading } = useSelector((state) => state.user);
   const formik = useSignInFormik();
 
   const SignInHandler = () => {
@@ -19,6 +27,10 @@ const SignInPage = () => {
       userSignIn(formik.values.userName, formik.values.password, router)
     );
   };
+
+  useEffect(() => {
+    if (hasCookie("user")) router.push("/");
+  }, []);
 
   return (
     <Box
@@ -32,8 +44,9 @@ const SignInPage = () => {
         justifyContent: "center",
       }}
     >
+      <ToastContainer theme="dark" />
       <Box
-        height="90%"
+        height={{ xs: "100%", md: "95%", xl: "fit-content" }}
         width={400}
         borderRadius={2}
         bgcolor="primary.main"
@@ -57,6 +70,7 @@ const SignInPage = () => {
               sx={{ bgcolor: "primary.light", p: 1, borderRadius: 2 }}
               fullWidth
               name="userName"
+              type="text"
               value={formik.userName}
               onChange={formik.handleChange}
             />
@@ -69,6 +83,7 @@ const SignInPage = () => {
               sx={{ bgcolor: "primary.light", p: 1, borderRadius: 2 }}
               fullWidth
               name="password"
+              type="password"
               value={formik.password}
               onChange={formik.handleChange}
             />
@@ -80,7 +95,7 @@ const SignInPage = () => {
             </Typography>
           </Box>
           <Box width="100%" mt={2}>
-            <Button
+            <LoadingButton
               sx={{
                 bgcolor: "secondary.light",
                 px: 1.5,
@@ -94,11 +109,15 @@ const SignInPage = () => {
                   color: "secondary.light",
                 },
               }}
+              loading={isLoading}
               fullWidth
               onClick={SignInHandler}
+              disabled={
+                formik.values.password === "" || formik.values.userName === ""
+              }
             >
               Sign In
-            </Button>
+            </LoadingButton>
           </Box>
           <Box width="100%" mt={2} textAlign="center">
             <Typography

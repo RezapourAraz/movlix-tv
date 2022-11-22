@@ -46,7 +46,7 @@ const ProfileHeaderAppBar = ({ handleChangeTab, value }) => {
     >
       <Grid
         item
-        md={3}
+        md={4}
         xs={12}
         sm={12}
         display="flex"
@@ -67,7 +67,7 @@ const ProfileHeaderAppBar = ({ handleChangeTab, value }) => {
           </Typography>
         </Box>
       </Grid>
-      <Grid item md={7} xs={12} sm={12}>
+      <Grid item md={6} xs={12} sm={12}>
         <Box
           sx={{
             typography: "body1",
