@@ -3,11 +3,23 @@ import React from "react";
 import { useRouter } from "next/router";
 // Mui
 import { Box, Button, Checkbox, Input, Typography } from "@mui/material";
+import { useSignInFormik } from "../../utils/formik";
+import { useDispatch } from "react-redux";
+import { userSignIn } from "../../redux/user/user.actions";
 
 const SignInPage = () => {
   // Hooks
   const router = useRouter();
-  
+  const dispatch = useDispatch();
+
+  const formik = useSignInFormik();
+
+  const SignInHandler = () => {
+    dispatch(
+      userSignIn(formik.values.userName, formik.values.password, router)
+    );
+  };
+
   return (
     <Box
       sx={{
@@ -39,11 +51,14 @@ const SignInPage = () => {
         <Box sx={{ marginY: 5 }}>
           <Box width="100%" mt={2}>
             <Typography variant="subtitle2" color="common.white" my={0.5}>
-              Email
+              User Name
             </Typography>
             <Input
               sx={{ bgcolor: "primary.light", p: 1, borderRadius: 2 }}
               fullWidth
+              name="userName"
+              value={formik.userName}
+              onChange={formik.handleChange}
             />
           </Box>
           <Box width="100%" mt={2}>
@@ -53,6 +68,9 @@ const SignInPage = () => {
             <Input
               sx={{ bgcolor: "primary.light", p: 1, borderRadius: 2 }}
               fullWidth
+              name="password"
+              value={formik.password}
+              onChange={formik.handleChange}
             />
           </Box>
           <Box width="100%" mt={2} display="flex" alignItems="center">
@@ -78,6 +96,7 @@ const SignInPage = () => {
                 },
               }}
               fullWidth
+              onClick={SignInHandler}
             >
               Sign In
             </Button>
@@ -193,10 +212,9 @@ const SignInPage = () => {
 };
 
 export async function getStaticProps() {
-
   return {
-    props: {}
-  }
+    props: {},
+  };
 }
 
 export default SignInPage;

@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+// Next
+import { useRouter } from "next/router";
 // Mui
 import { Avatar, Box, Grid, Tab, Tabs, Typography } from "@mui/material";
-// Mui
+// Icons
 import LogoutIcon from "@mui/icons-material/Logout";
+// Redux
+import { useSelector } from "react-redux";
 
 const tabs = [
   {
@@ -19,7 +23,15 @@ const tabs = [
   },
 ];
 
-const ProfileHeaderAppBar = ({ handleChangeTab, value, user }) => {
+const ProfileHeaderAppBar = ({ handleChangeTab, value }) => {
+  // Hooks
+  const router = useRouter();
+  const { user } = useSelector((state) => state.user);
+
+  useEffect(() => {
+    if (!user) router.push("/login");
+  }, [user]);
+
   return (
     <Grid
       container
@@ -39,15 +51,15 @@ const ProfileHeaderAppBar = ({ handleChangeTab, value, user }) => {
       >
         <Avatar
           sx={{ bgcolor: "common.white", color: "primary.main" }}
-          aria-label={user.userName}
-          src={user.profilePic}
+          aria-label={user?.userName}
+          src={user?.profilePic}
         />
         <Box mx={2}>
           <Typography variant="body1" color="common.white">
-            {user.firstName} {user.lastName}
+            {user?.firstName} {user?.lastName}
           </Typography>
           <Typography variant="body2" color="common.white">
-            Movlix ID: {user.id}
+            Movlix ID: {user?.id}
           </Typography>
         </Box>
       </Grid>

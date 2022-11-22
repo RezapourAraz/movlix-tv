@@ -3,10 +3,10 @@ import { Box, Container } from "@mui/material";
 import TopHeaderAppBar from "../appbars/TopHeader.appbars";
 import MainFooter from "../footer/MainFooter";
 
-const Layout = ({ children, user }) => {
+const Layout = ({ children }) => {
   return (
     <Box>
-      <TopHeaderAppBar user={user} />
+      <TopHeaderAppBar />
       {children}
       <MainFooter />
     </Box>

@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { useCookies } from "react-cookie";
 // Next
 import { useRouter } from "next/router";
 // Mui
@@ -12,13 +13,20 @@ import FilterAppBars from "../components/appbars/Filter.appbars";
 import MainSection from "../components/sections/Main.sections";
 import SubscriptionSection from "../components/sections/Subscriptions.sections";
 import TvOriginalsSection from "../components/sections/TvOriginals.section";
+// Redux
+import { useDispatch, useSelector } from "react-redux";
+import { userSignIn } from "../redux/user/user.actions";
 // get file path
 import fs from "fs/promises";
 import path from "path";
 
 export default function Home(props) {
+  // Hooks
+  const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.user);
+  const [cookie, setCookie] = useCookies(["user"]);
   // Data Props
-  const { banner, movies, subscription, originals, user } = props;
+  const { banner, movies, subscription, originals } = props;
   // Hooks
   const router = useRouter();
 
@@ -26,42 +34,41 @@ export default function Home(props) {
     if (!user) router.push("/signin");
   }, [user]);
 
-  if (user)
-    return (
-      <Layout user={user}>
-        <TopSwiper>
-          {banner.map((item) => (
-            <SwiperSlide>
-              <Box borderRadius={2} overflow="hidden" position="relative">
-                <img
-                  loading="lazy"
-                  width="100%"
-                  height="100%"
-                  src={item.banner}
-                  alt={item.title}
-                />
-                <Box position="absolute" bottom={20} left={20}>
-                  <Typography
-                    variant="subtitle1"
-                    fontSize={26}
-                    color="common.white"
-                  >
-                    {item.title}
-                  </Typography>
-                </Box>
+  return (
+    <Layout>
+      <TopSwiper>
+        {banner.map((item) => (
+          <SwiperSlide>
+            <Box borderRadius={2} overflow="hidden" position="relative">
+              <img
+                loading="lazy"
+                width="100%"
+                height="100%"
+                src={item.banner}
+                alt={item.title}
+              />
+              <Box position="absolute" bottom={20} left={20}>
+                <Typography
+                  variant="subtitle1"
+                  fontSize={26}
+                  color="common.white"
+                >
+                  {item.title}
+                </Typography>
               </Box>
-            </SwiperSlide>
-          ))}
-        </TopSwiper>
-        <FilterAppBars />
-        <MainSection movies={movies} />
-        <SubscriptionSection subscription={subscription} />
-        <TvOriginalsSection originals={originals} />
-      </Layout>
-    );
+            </Box>
+          </SwiperSlide>
+        ))}
+      </TopSwiper>
+      <FilterAppBars />
+      <MainSection movies={movies} />
+      <SubscriptionSection subscription={subscription} />
+      <TvOriginalsSection originals={originals} />
+    </Layout>
+  );
 }
 
-export async function getStaticProps(context) {
+export async function getStaticProps({ req, res }) {
   // import dummy data
   const filePath = path.join(process.cwd(), "data.json");
   const jsonData = await fs.readFile(filePath);
@@ -78,7 +85,6 @@ export async function getStaticProps(context) {
       movies: data.movies,
       subscription: data.subscription,
       originals: data.originals,
-      user: data.user,
     },
   };
 }

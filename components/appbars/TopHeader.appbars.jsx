@@ -31,6 +31,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 // Next
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { useSelector } from "react-redux";
 
 const pages = [
   { id: 1, name: "Home", route: "/" },
@@ -39,9 +40,10 @@ const pages = [
 ];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
-function TopHeaderAppBar({ user }) {
+function TopHeaderAppBar() {
   // Hooks
   const router = useRouter();
+  const { user } = useSelector((state) => state.user);
   // states for menus
   const [open, setOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
@@ -156,7 +158,7 @@ function TopHeaderAppBar({ user }) {
           <Box sx={{ flexGrow: 0 }}>
             {user ? (
               <IconButton onClick={() => router.push("/profile")} sx={{ p: 0 }}>
-                <Avatar alt={user.userName} src={user.profilePic} />
+                <Avatar alt={user?.userName} src={user?.profilePic} />
               </IconButton>
             ) : (
               <Box

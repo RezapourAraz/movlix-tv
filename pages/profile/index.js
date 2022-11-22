@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 // Mui
 import { Box, Typography, Container, Grid } from "@mui/material";
 // Components
@@ -9,10 +9,12 @@ import MovieImageCard from "../../components/cards/MovieImage.cards";
 // Helper
 import { getData } from "../../utils/helper";
 import { useRouter } from "next/router";
+import { useSelector } from "react-redux";
 
-const ProfilePage = ({ movies, user }) => {
+const ProfilePage = ({ movies }) => {
   // Hooks
   const router = useRouter();
+  const { user } = useSelector((state) => state.user);
   // State
   const [value, setValue] = useState("profile");
   // handler for tabs
@@ -20,12 +22,14 @@ const ProfilePage = ({ movies, user }) => {
     setValue(newValue);
   };
 
-  if (!user) {
-    router.push("/signin");
-  }
+  useEffect(() => {
+    if (!user) {
+      router.push("/signin");
+    }
+  }, [user]);
 
   return (
-    <Layout user={user}>
+    <Layout>
       <Container>
         <Box minHeight="calc(100vh - 110px)">
           <Box my={5}>
@@ -74,7 +78,6 @@ export async function getStaticProps(context) {
   return {
     props: {
       movies: data.movies,
-      user: data.user,
     },
   };
 }
