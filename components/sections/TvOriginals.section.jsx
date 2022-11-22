@@ -65,7 +65,7 @@ const TvOriginalsSection = ({ originals }) => {
           }}
         >
           {originals.map((original) => (
-            <SwiperSlide>
+            <SwiperSlide key={original.id}>
               <Box width={350} height={340}>
                 <Box
                   width="100%"

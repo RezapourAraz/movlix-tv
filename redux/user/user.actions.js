@@ -1,7 +1,10 @@
 import axios from "axios";
+// actions
 import { userActionTypes } from "./user.type";
+// cookie
+import { setCookie } from "cookies-next";
 
-const BASE_URL = "http://localhost:8000/";
+const BASE_URL = "https://movlix-server.vercel.app/";
 
 // user sign in
 const userSigInActionStart = () => ({
@@ -22,6 +25,7 @@ export const userSignIn = (userName, password, router) => async (dispatch) => {
     .then((res) => {
       const user = res.data.data;
       dispatch(userSignInActionSuccess(user));
+      setCookie("user", user);
       router.push("/");
     })
     .catch((err) => dispatch(userSignInActionFailure(err.message)));

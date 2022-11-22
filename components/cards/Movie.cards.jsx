@@ -48,7 +48,7 @@ const MovieCards = ({ movie }) => {
         </Box>
         <Box mt={1} display="flex" justifyContent="space-between">
           {movie.genre.map((item) => (
-            <Typography variant="subTitle2" color="grey">
+            <Typography key={item} variant="subTitle2" color="grey">
               {item}
             </Typography>
           ))}

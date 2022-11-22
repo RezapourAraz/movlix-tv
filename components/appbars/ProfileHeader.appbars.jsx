@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { deleteCookie, getCookie, hasCookie } from "cookies-next";
 // Next
 import { useRouter } from "next/router";
 // Mui
 import { Avatar, Box, Grid, Tab, Tabs, Typography } from "@mui/material";
 // Icons
 import LogoutIcon from "@mui/icons-material/Logout";
-// Redux
-import { useSelector } from "react-redux";
 
 const tabs = [
   {
@@ -26,10 +25,15 @@ const tabs = [
 const ProfileHeaderAppBar = ({ handleChangeTab, value }) => {
   // Hooks
   const router = useRouter();
-  const { user } = useSelector((state) => state.user);
+  const [user, setUser] = useState(null);
+  const cookieUser = getCookie("user");
 
   useEffect(() => {
-    if (!user) router.push("/login");
+    if (hasCookie("user")) {
+      if (!user) setUser(JSON.parse(cookieUser));
+    } else {
+      router.push("/signin");
+    }
   }, [user]);
 
   return (
@@ -117,6 +121,13 @@ const ProfileHeaderAppBar = ({ handleChangeTab, value }) => {
         display="flex"
         alignItems="center"
         justifyContent="flex-end"
+        onClick={() => {
+          deleteCookie("user", {
+            path: "/",
+            domain: "localhost",
+          });
+          setUser(null);
+        }}
         sx={{
           cursor: "pointer",
           color: "common.white",

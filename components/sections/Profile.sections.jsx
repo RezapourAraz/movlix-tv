@@ -11,7 +11,14 @@ const ProfileSection = () => {
     <Grid container my={3}>
       <Grid item container xs={12} gap={2} justifyContent="space-between">
         {[1, 2, 3, 4].map((item) => (
-          <Grid item md={2.8} bgcolor="primary.light" p={3} borderRadius={3}>
+          <Grid
+            key={item}
+            item
+            md={2.8}
+            bgcolor="primary.light"
+            p={3}
+            borderRadius={3}
+          >
             Profile Cards
           </Grid>
         ))}

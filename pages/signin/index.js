@@ -88,7 +88,6 @@ const SignInPage = () => {
                 borderRadius: 2,
                 color: "common.white",
                 fontSize: 18,
-                fontWeight: "bold",
                 transition: "all 0.5s linear",
                 "&:hover": {
                   bgcolor: "common.white",
@@ -210,11 +209,4 @@ const SignInPage = () => {
     </Box>
   );
 };
-
-export async function getStaticProps() {
-  return {
-    props: {},
-  };
-}
-
 export default SignInPage;

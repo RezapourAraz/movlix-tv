@@ -1,5 +1,6 @@
-import React, { useEffect } from "react";
-import { useCookies } from "react-cookie";
+import React, { useEffect, useState } from "react";
+import { getCookie, hasCookie } from "cookies-next";
+
 // Next
 import { useRouter } from "next/router";
 // Mui
@@ -13,32 +14,32 @@ import FilterAppBars from "../components/appbars/Filter.appbars";
 import MainSection from "../components/sections/Main.sections";
 import SubscriptionSection from "../components/sections/Subscriptions.sections";
 import TvOriginalsSection from "../components/sections/TvOriginals.section";
-// Redux
-import { useDispatch, useSelector } from "react-redux";
-import { userSignIn } from "../redux/user/user.actions";
 // get file path
 import fs from "fs/promises";
 import path from "path";
 
 export default function Home(props) {
   // Hooks
-  const dispatch = useDispatch();
-  const { user } = useSelector((state) => state.user);
-  const [cookie, setCookie] = useCookies(["user"]);
+  const [user, setUser] = useState(null);
+  const cookieUser = getCookie("user");
   // Data Props
   const { banner, movies, subscription, originals } = props;
   // Hooks
   const router = useRouter();
 
   useEffect(() => {
-    if (!user) router.push("/signin");
-  }, [user]);
+    if (hasCookie("user")) {
+      setUser(JSON.parse(cookieUser));
+    } else {
+      router.push("/signin");
+    }
+  }, []);
 
   return (
     <Layout>
       <TopSwiper>
         {banner.map((item) => (
-          <SwiperSlide>
+          <SwiperSlide key={item.id}>
             <Box borderRadius={2} overflow="hidden" position="relative">
               <img
                 loading="lazy"

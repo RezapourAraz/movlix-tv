@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { getCookie, hasCookie } from "cookies-next";
 // Mui
 import {
   AppBar,
@@ -43,8 +44,9 @@ const settings = ["Profile", "Account", "Dashboard", "Logout"];
 function TopHeaderAppBar() {
   // Hooks
   const router = useRouter();
-  const { user } = useSelector((state) => state.user);
-  // states for menus
+  const cookieUser = getCookie("user");
+
+  const [user, setUser] = useState(null);
   const [open, setOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
 
@@ -58,6 +60,14 @@ function TopHeaderAppBar() {
   const handleOpenMenu = () => {
     setOpen(true);
   };
+
+  useEffect(() => {
+    if (hasCookie("user")) {
+      setUser(JSON.parse(cookieUser));
+    } else {
+      router.push("/signin");
+    }
+  }, []);
 
   return (
     <AppBar position="sticky" top={0} p={4}>

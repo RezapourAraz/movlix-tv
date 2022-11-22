@@ -9,12 +9,14 @@ import MovieImageCard from "../../components/cards/MovieImage.cards";
 // Helper
 import { getData } from "../../utils/helper";
 import { useRouter } from "next/router";
+import { getCookie, hasCookie } from "cookies-next";
 import { useSelector } from "react-redux";
 
 const ProfilePage = ({ movies }) => {
   // Hooks
   const router = useRouter();
-  const { user } = useSelector((state) => state.user);
+  const [user, setUser] = useState(null);
+  const cookieUser = getCookie("user");
   // State
   const [value, setValue] = useState("profile");
   // handler for tabs
@@ -23,10 +25,12 @@ const ProfilePage = ({ movies }) => {
   };
 
   useEffect(() => {
-    if (!user) {
+    if (hasCookie("user")) {
+      setUser(JSON.parse(cookieUser));
+    } else {
       router.push("/signin");
     }
-  }, [user]);
+  }, []);
 
   return (
     <Layout>
@@ -40,7 +44,6 @@ const ProfilePage = ({ movies }) => {
           <ProfileHeaderAppBar
             handleChangeTab={handleChangeTab}
             value={value}
-            user={user}
           />
           {value === "profile" && <ProfileSection />}
 
