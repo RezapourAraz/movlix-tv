@@ -11,6 +11,7 @@ import { getData } from "../../utils/helper";
 import { useRouter } from "next/router";
 import { getCookie, hasCookie } from "cookies-next";
 import { useSelector } from "react-redux";
+import SettingSection from "../../components/sections/Setting.section";
 
 const ProfilePage = ({ movies }) => {
   // Hooks
@@ -64,6 +65,7 @@ const ProfilePage = ({ movies }) => {
               ))}
             </Grid>
           )}
+          {value === "settings" && <SettingSection />}
         </Box>
       </Container>
     </Layout>

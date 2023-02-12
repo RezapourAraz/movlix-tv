@@ -11,6 +11,8 @@ import {
 } from "@mui/material";
 
 const MainFooter = () => {
+  const year = new Date().getFullYear();
+
   return (
     <Box bgcolor="primary.light">
       <Container>
@@ -192,7 +194,7 @@ const MainFooter = () => {
           borderColor="primary.main"
         >
           <Typography variant="subTitle2" color="common.white" fontSize={14}>
-            © MOVLIX Movie Website, 2022, Created by Araz Rezapour
+            © MOVLIX Movie Website, {`${year}`}, Created by Araz Rezapour
           </Typography>
         </Box>
       </Container>
