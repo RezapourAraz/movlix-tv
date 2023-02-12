@@ -5,21 +5,77 @@ import { Box, Grid, IconButton, Typography } from "@mui/material";
 import LocalMoviesOutlinedIcon from "@mui/icons-material/LocalMoviesOutlined";
 import StarBorderPurple500OutlinedIcon from "@mui/icons-material/StarBorderPurple500Outlined";
 import CachedOutlinedIcon from "@mui/icons-material/CachedOutlined";
+import AccountBalanceWalletOutlinedIcon from "@mui/icons-material/AccountBalanceWalletOutlined";
+import ConfirmationNumberOutlinedIcon from "@mui/icons-material/ConfirmationNumberOutlined";
+import TextsmsOutlinedIcon from "@mui/icons-material/TextsmsOutlined";
+import StarBorderOutlinedIcon from "@mui/icons-material/StarBorderOutlined";
+
+const profileCards = [
+  {
+    id: 1,
+    name: "My balance",
+    icon: (
+      <AccountBalanceWalletOutlinedIcon
+        sx={{ color: "secondary.main", fontSize: 30 }}
+      />
+    ),
+    data: "",
+  },
+  {
+    id: 2,
+    name: "Premium plan",
+    icon: (
+      <ConfirmationNumberOutlinedIcon
+        sx={{ color: "secondary.main", fontSize: 30 }}
+      />
+    ),
+    data: "",
+  },
+  {
+    id: 3,
+    name: "Your comments",
+    icon: (
+      <TextsmsOutlinedIcon sx={{ color: "secondary.main", fontSize: 30 }} />
+    ),
+    data: "",
+  },
+  {
+    id: 4,
+    name: "Your reviews",
+    icon: (
+      <StarBorderOutlinedIcon sx={{ color: "secondary.main", fontSize: 30 }} />
+    ),
+    data: "",
+  },
+];
 
 const ProfileSection = () => {
   return (
     <Grid container my={3}>
       <Grid item container xs={12} gap={2} justifyContent="space-between">
-        {[1, 2, 3, 4].map((item) => (
+        {profileCards.map((item) => (
           <Grid
-            key={item}
+            key={item.id}
             item
             md={2.8}
             bgcolor="primary.light"
             p={3}
             borderRadius={3}
           >
-            Profile Cards
+            <Typography variant="subtitle1" color="common.white">
+              {item.name}
+            </Typography>
+            <Box
+              display="flex"
+              justifyContent="space-between"
+              alignItems="center"
+            >
+              <Typography variant="subtitle2" color="common.white">
+                {item.name}
+              </Typography>
+
+              {item.icon}
+            </Box>
           </Grid>
         ))}
       </Grid>
