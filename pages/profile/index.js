@@ -45,6 +45,7 @@ const ProfilePage = ({ movies }) => {
           <ProfileHeaderAppBar
             handleChangeTab={handleChangeTab}
             value={value}
+            user={user}
           />
           {value === "profile" && <ProfileSection />}
 

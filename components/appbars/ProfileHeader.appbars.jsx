@@ -22,20 +22,7 @@ const tabs = [
   },
 ];
 
-const ProfileHeaderAppBar = ({ handleChangeTab, value }) => {
-  // Hooks
-  const router = useRouter();
-  const [user, setUser] = useState(null);
-  const cookieUser = getCookie("user");
-
-  useEffect(() => {
-    if (hasCookie("user")) {
-      if (!user) setUser(JSON.parse(cookieUser));
-    } else {
-      router.push("/signin");
-    }
-  }, [user]);
-
+const ProfileHeaderAppBar = ({ handleChangeTab, value, user }) => {
   return (
     <Grid
       container
@@ -60,7 +47,7 @@ const ProfileHeaderAppBar = ({ handleChangeTab, value }) => {
         />
         <Box mx={2}>
           <Typography variant="body1" color="common.white">
-            {user?.firstName} {user?.lastName}
+            {user?.userName}
           </Typography>
           <Typography variant="body2" color="common.white">
             Movlix ID: {user?.id}

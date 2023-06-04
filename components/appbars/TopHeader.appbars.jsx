@@ -168,7 +168,7 @@ function TopHeaderAppBar() {
           <Box sx={{ flexGrow: 0 }}>
             {user ? (
               <IconButton onClick={() => router.push("/profile")} sx={{ p: 0 }}>
-                <Avatar alt={user?.userName} src={user?.profilePic} />
+                <Avatar alt={user.userName} src={user?.profilePic} />
               </IconButton>
             ) : (
               <Box
