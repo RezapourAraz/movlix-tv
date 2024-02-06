@@ -23,20 +23,20 @@ import StarBorderIcon from "@mui/icons-material/StarBorder";
 
 export default function Home(props) {
   // Hooks
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState({});
   const cookieUser = getCookie("user");
   // Data Props
   const { banner, movies, subscription, originals } = props;
   // Hooks
   const router = useRouter();
 
-  useEffect(() => {
-    if (hasCookie("user")) {
-      setUser(JSON.parse(cookieUser));
-    } else {
-      router.push("/signin");
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (hasCookie("user")) {
+  //     setUser(JSON.parse(cookieUser));
+  //   } else {
+  //     router.push("/signin");
+  //   }
+  // }, []);
 
   return (
     <Layout>

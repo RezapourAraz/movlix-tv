@@ -67,7 +67,12 @@ const SignInPage = () => {
               User Name
             </Typography>
             <Input
-              sx={{ bgcolor: "primary.light", p: 1, borderRadius: 2 }}
+              sx={{
+                bgcolor: "primary.light",
+                p: 1,
+                borderRadius: 2,
+                color: "white",
+              }}
               fullWidth
               name="userName"
               type="text"
@@ -80,7 +85,12 @@ const SignInPage = () => {
               Password
             </Typography>
             <Input
-              sx={{ bgcolor: "primary.light", p: 1, borderRadius: 2 }}
+              sx={{
+                bgcolor: "primary.light",
+                p: 1,
+                borderRadius: 2,
+                color: "white",
+              }}
               fullWidth
               name="password"
               type="password"

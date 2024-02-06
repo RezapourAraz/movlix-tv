@@ -61,13 +61,13 @@ function TopHeaderAppBar() {
     setOpen(true);
   };
 
-  useEffect(() => {
-    if (hasCookie("user")) {
-      setUser(JSON.parse(cookieUser));
-    } else {
-      router.push("/signin");
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (hasCookie("user")) {
+  //     setUser(JSON.parse(cookieUser));
+  //   } else {
+  //     router.push("/signin");
+  //   }
+  // }, []);
 
   return (
     <AppBar position="sticky" top={0} p={4}>
